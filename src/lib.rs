@@ -25,7 +25,7 @@ extern crate log;
 #[cfg(feature = "use-openssl")]
 extern crate openssl;
 #[cfg(all(
-    any(feature = "default", feature = "use-rustls"),
+    any(feature = "default", feature = "use-rustls", feature = "use-rustls-ring"),
     not(feature = "use-openssl")
 ))]
 extern crate rustls;
@@ -51,7 +51,8 @@ mod batch;
 
 #[cfg(any(
     all(feature = "proxy", feature = "use-openssl"),
-    all(feature = "proxy", feature = "use-rustls")
+    all(feature = "proxy", feature = "use-rustls"),
+    all(feature = "proxy", feature = "use-rustls-ring")
 ))]
 pub mod client;
 
