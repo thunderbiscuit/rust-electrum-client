@@ -23,7 +23,7 @@ use bitcoin::{Script, Txid};
 use openssl::ssl::{SslConnector, SslMethod, SslStream, SslVerifyMode};
 
 #[cfg(all(
-    any(feature = "default", feature = "use-rustls"),
+    any(feature = "default", feature = "use-rustls", feature = "use-rustls-ring"),
     not(feature = "use-openssl")
 ))]
 use rustls::{
